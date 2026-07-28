@@ -1,4 +1,31 @@
 #22. Verificar si una lista está ordenada
+# Versión sin bucle while
+valores = input("\nIngrese los elementos para la lista separados por espacios, por favor: ").strip().lower()
+
+if not valores:
+    print("\nInvalido. La entrada de los elementos no puede estar vacia.")
+    exit()
+
+try:
+    lista = [n for n in valores.split()]
+except ValueError:
+    print("\nError. El elemento ingresado para la lista es invalido")
+    lista = []
+    exit()
+
+if not lista:
+    print("\nInvalido.")
+    exit()
+
+print(f"\nLista ingresada: {lista}")
+
+orden = True
+for valor in range(len(lista) - 1):
+    if lista[valor] >= lista[valor+1]:
+        orden = False
+
+print(f"\nLa lista ingresada esta ordenada: {orden}")
+#Versión con bucle while
 def continuar_programa():
     continuar = input("\n¿Desea continuar con el programa?, (s/n): ").strip().lower()
     if continuar in ("s", "si"):
